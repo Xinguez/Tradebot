@@ -13,8 +13,7 @@ On *:TEXT:.read_*:#: {
   var %prd = $remove($1, .read_)
   if ( (%prd==armas) || (%prd==pan) || (%prd==regalos) ){
     var %file =  C:/ $+ %prd $+ .txt
-  	var %xx = $read(%file)
-  	play $nick %xx
+    play $nick %file
   }else{
   	RETURN
   }

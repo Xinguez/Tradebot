@@ -1,0 +1,21 @@
+On MASTER:TEXT:.add_*:#: {
+  var %prd = $remove($1, .add_)
+  if ( (%prd==armas) || (%prd==pan) || (%prd==regalos) ){
+    var %file =  C:/ $+ %prd $+ .txt
+    write %file Producto: $2 - Precio: $3 - Vendedor: $4 - Stock: $5  Link: $6
+    /msg $chan $nick Venta Guardado
+	}else{
+	  RETURN
+	}
+}
+
+On *:TEXT:.read_*:#: {
+  var %prd = $remove($1, .read_)
+  if ( (%prd==armas) || (%prd==pan) || (%prd==regalos) ){
+    var %file =  C:/ $+ %prd $+ .txt
+  	var %xx = $read(%file)
+  	/msg $chan $nick %xx 
+	}else{
+	  RETURN
+	}
+}

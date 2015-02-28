@@ -14,8 +14,8 @@ On *:TEXT:.read_*:#: {
   if ( (%prd==armas) || (%prd==pan) || (%prd==regalos) ){
     var %file =  C:/ $+ %prd $+ .txt
   	var %xx = $read(%file)
-  	/msg $chan $nick %xx 
-	}else{
-	  RETURN
-	}
+  	play $nick %xx
+  }else{
+  	RETURN
+  }
 }
